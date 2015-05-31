@@ -5,7 +5,7 @@ module Sinatra
       # Returns the MD5 for all of the files concatenated together
       def cache_buster_hash(*files)
         content = files.sort.map do |f|
-          Digest::MD5.file(f).hexdigest if f.is_a?(String) && File.file?(f)
+          Digest::MD5.hexdigest(f) if f.is_a?(String)
         end.compact
         Digest::MD5.hexdigest(content.join) if content.any?
       end

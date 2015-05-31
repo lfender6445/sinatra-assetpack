@@ -43,7 +43,7 @@ module Sinatra
       end
 
       def files
-        paths_and_files.values.compact
+        paths_and_files.keys.compact
       end
 
       def paths
